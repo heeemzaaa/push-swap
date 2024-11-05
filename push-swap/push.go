@@ -29,6 +29,7 @@ func main() {
 	fmt.Print(finalResult)
 }
 
+// this function converts the numbers passed as a string to an int
 func Converting(slice []string) []int {
 	converted := []int{}
 	for i := 0; i < len(slice); i++ {
@@ -44,6 +45,7 @@ func Converting(slice []string) []int {
 	return converted
 }
 
+// checks if there is a duplicate numbers
 func Duplicates(s1 []int) bool {
 	for i := 0; i < len(s1); i++ {
 		for j := 0; j < len(s1); j++ {
@@ -55,6 +57,7 @@ func Duplicates(s1 []int) bool {
 	return true
 }
 
+// checks if the stack is sorted
 func Sorted(s1 []int) bool {
 	for i := 0; i < len(s1)-1; i++ {
 		if s1[i] > s1[i+1] {
@@ -64,6 +67,7 @@ func Sorted(s1 []int) bool {
 	return true
 }
 
+// sort the stack of the length 3
 func HandleThree(s1 []int, s2 []int) ([]int, []int) {
 	if Sorted(s1) {
 		return s1, s2
@@ -86,6 +90,7 @@ func HandleThree(s1 []int, s2 []int) ([]int, []int) {
 	return s1, s2
 }
 
+// write the instructions of the stack that have three elements
 func CaseThree(s1 []int, s2 []int) string {
 	result := ""
 	if Sorted(s1) {
@@ -109,6 +114,7 @@ func CaseThree(s1 []int, s2 []int) string {
 	return result
 }
 
+// finds the smaller number and it's index in the stacl
 func Smaller(s1 []int) (int, int) {
 	smaller := s1[0]
 	index := 0
@@ -121,6 +127,7 @@ func Smaller(s1 []int) (int, int) {
 	return smaller, index
 }
 
+// the main function in the program that do our logique
 func Push_Swap(s1 []int, s2 []int) string {
 	result := ""
 	for len(s1) != 3 {
@@ -163,6 +170,5 @@ func Push_Swap(s1 []int, s2 []int) string {
 		s1, s2 = p.Pa(s1, s2)
 		result += "pa" + "\n"
 	}
-	fmt.Println(s1)
 	return result
 }
