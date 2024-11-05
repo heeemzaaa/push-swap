@@ -4,9 +4,10 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	p "push/instructions"
 	"strconv"
 	"strings"
+
+	p "push/instructions"
 )
 
 func main() {
@@ -36,6 +37,7 @@ func main() {
 	fmt.Println(finalResult)
 }
 
+// this function checks if there is a duplicate numbers
 func Duplicates(s1 []int) bool {
 	for i := 0; i < len(s1); i++ {
 		for j := 0; j < len(s1); j++ {
@@ -47,6 +49,7 @@ func Duplicates(s1 []int) bool {
 	return false
 }
 
+// this function converts the numbers in the slice from string to int
 func Converting(slice []string) []int {
 	converted := []int{}
 	for i := 0; i < len(slice); i++ {
@@ -62,6 +65,7 @@ func Converting(slice []string) []int {
 	return converted
 }
 
+// this function applies every command there
 func Apply(s1, s2 []int, slice []string) ([]int, []int) {
 	for i := 0; i < len(slice); i++ {
 		if slice[i] == "pa" {
@@ -95,6 +99,7 @@ func Apply(s1, s2 []int, slice []string) ([]int, []int) {
 	return s1, s2
 }
 
+// this function checks if the slice is sorted
 func Sorted(s1 []int) bool {
 	for i := 0; i < len(s1)-1; i++ {
 		if s1[i] > s1[i+1] {
@@ -104,6 +109,7 @@ func Sorted(s1 []int) bool {
 	return true
 }
 
+// this function checks if the slice id sorted it returns "OK" otherwise it returns "KO"
 func Checker(s1, s2 []int) string {
 	if len(s2) == 0 && Sorted(s1) {
 		return "OK"

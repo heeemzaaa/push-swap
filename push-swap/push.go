@@ -3,9 +3,10 @@ package main
 import (
 	"fmt"
 	"os"
-	p "push/instructions"
 	"strconv"
 	"strings"
+
+	p "push/instructions"
 )
 
 func main() {
@@ -108,18 +109,23 @@ func CaseThree(s1 []int, s2 []int) string {
 	return result
 }
 
+func Smaller(s1 []int) (int, int) {
+	smaller := s1[0]
+	index := 0
+	for i := 0; i < len(s1); i++ {
+		if s1[i] < smaller {
+			smaller = s1[i]
+			index = i
+		}
+	}
+	return smaller, index
+}
+
 func Push_Swap(s1 []int, s2 []int) string {
 	result := ""
-	index := 0
 	for len(s1) != 3 {
-		smaller := s1[0]
 		if !Sorted(s1) {
-			for i := 0; i < len(s1); i++ {
-				if s1[i] < smaller {
-					smaller = s1[i]
-					index = i
-				}
-			}
+			_, index := Smaller(s1)
 			if (index != 0 && index != 1) && (len(s1) != 3) {
 				if index > len(s1)/2 {
 					for i := index; i < len(s1); i++ {
